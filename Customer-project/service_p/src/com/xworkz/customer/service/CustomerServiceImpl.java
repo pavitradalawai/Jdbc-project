@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 		if (dto != null) {
 			System.out.println("validating");
 			String name = dto.getName();
-			if (name != null && !name.isEmpty() && name.length() >= 5 && name.length() <= 20) {
+			if (name != null && !name.isEmpty() && name.length() >= 4 && name.length() <= 20) {
 				System.out.println("name is valid");
 				nameValid = true;
 			} else {
@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
 				nameValid = false;
 			}
 			String from = dto.getName();
-			if (from != null && !from.isEmpty() && from.length() >= 6 && from.length() <= 30) {
+			if (from != null && !from.isEmpty() && from.length() >= 5 && from.length() <= 20) {
 				System.out.println("from is valid");
 				fromValid = true;
 			} else {
@@ -41,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
 				fromValid = false;
 			}
 			String to = dto.getTo();
-			if (to != null && !to.isEmpty() && to.length() >= 4 && to.length() <= 30) {
+			if (to != null && !to.isEmpty() && to.length() >= 5 && to.length() <= 20) {
 				System.out.println("to is valid");
 				toValid = true;
 			} else {
@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
 				toValid = false;
 			}
 			String address = dto.getAddress();
-			if (address != null && !address.isEmpty() && address.length() >= 10 && address.length() <= 30) {
+			if (address != null && !address.isEmpty() && address.length() >= 7 && address.length() <= 20) {
 				System.out.println("to is valid");
 				addressValid = true;
 			} else {
@@ -65,7 +65,7 @@ public class CustomerServiceImpl implements CustomerService {
 				marriedValid = false;
 			}
 			String passport = dto.getPassportNo();
-			if (passport != null && !passport.isEmpty() && passport.length() >= 4 && passport.length() <= 30) {
+			if (passport != null && !passport.isEmpty() && passport.length() >= 8 && passport.length() <= 20) {
 				System.out.println("to is valid");
 				passportValid = true;
 			} else {
@@ -81,10 +81,10 @@ public class CustomerServiceImpl implements CustomerService {
 				educationValid = false;
 			}
 			if (nameValid && fromValid && toValid && addressValid && marriedValid && passportValid && educationValid) {
-				System.out.println("data is valid returning success");
+				System.out.println(" valid returning success");
 				return 1;
 			}
-			System.out.println("data is invalid returning failed");
+			System.out.println(" invalid returning failed");
 
 			return 0;
 		}
