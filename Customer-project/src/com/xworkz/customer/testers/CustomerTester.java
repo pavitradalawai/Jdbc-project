@@ -14,8 +14,8 @@ import com.xworkz.customer.service.CustomerServiceImpl;
 public class CustomerTester {
 
 	public static void main(String[] args) {
-		CustomerDTO dto = new CustomerDTO("pavitra", "jkd", "mudhol", "Basava Circle", false, "abc123", Education.BE);
-		CustomerDTO dto1 = new CustomerDTO("Ranjita", "bgk", "jkd", "laxmi Circle", false, "xyz546", Education.BCOM);
+		CustomerDTO dto = new CustomerDTO("Ram", "jkd", "mudhol", "Basava Circle", false, "abc123", Education.BE);
+		CustomerDTO dto1 = new CustomerDTO("Sham", "bgk", "jkd", "laxmi Circle", false, "xyz546", Education.BCOM);
 
 		CustomerService dao = new CustomerServiceImpl();
 		dao.validateAndSave(dto);
@@ -24,7 +24,7 @@ public class CustomerTester {
 		dao.validateAndSaveAll(collect);
 		System.out.println("##");
 
-		Optional<CustomerDTO> one = dao.findOne(d -> d.getName().equals("pavitra"));
+		Optional<CustomerDTO> one = dao.findOne(d -> d.getName().equals("Ram"));
 		if (one.isPresent()) {
 			CustomerDTO name = one.get();
 			System.out.println(name);
