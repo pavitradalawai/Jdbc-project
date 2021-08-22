@@ -9,31 +9,35 @@ import java.sql.Statement;
 public class LillyTesetr {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 		String username = "root";
 		String password = "pavidalawai2468";
 		String url = "jdbc:mysql://localhost:3306/transformers";
-		String fnqOfDriverImpl = "com.mysql.cj.jdbc.Driver";
-		try (Connection connection = DriverManager.getConnection(url, username, password);) {
-			Class.forName(fnqOfDriverImpl);
+		String fqnOfDriverImpl = "com.mysql.cj.jdbc.Driver";
+		Connection connection = null;
+		try {
+			Class.forName(fqnOfDriverImpl);
 
-			
-			String query="insert into flower_table values(12,'Lilly','Custom',13,true,true,false,true,true,false,true)";
+			connection = DriverManager.getConnection(url, username, password);
+			System.out.println(connection);
+
+			String query = "insert into flower_table values(12,'Lilly','Custom',13,true,true,false,true,true,false,true)";
 			Statement statement = connection.createStatement();
 			statement.execute(query);
-			ResultSet result = statement.getResultSet();
-
-			System.out.println(connection);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-
-}
 
 }
